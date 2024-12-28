@@ -35,7 +35,7 @@ const mockAssets = [
 ];
 
 const DApp = () => {
-  const { address, isConnecting, connectWallet, disconnectWallet } = useWallet();
+  const { walletAddress, isLoading, connectWallet, disconnectWallet } = useWallet();
   const [activeTab, setActiveTab] = useState('dashboard');
 
   const renderContent = () => {
@@ -80,8 +80,8 @@ const DApp = () => {
           </h1>
           <div className="flex items-center gap-4">
           <WalletButton
-                address={address}
-                isConnecting={isConnecting}
+                address={walletAddress}
+                isConnecting={isLoading}
                 onConnect={connectWallet}
                 onDisconnect={disconnectWallet}
               />
